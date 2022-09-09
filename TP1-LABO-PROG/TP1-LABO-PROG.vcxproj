@@ -129,14 +129,14 @@
   <ItemGroup>
     <ClCompile Include="cEntregas.cpp" />
     <ClCompile Include="cJefes.cpp" />
-    <ClCompile Include="cListaEntregas.cpp" />
+    <ClCompile Include="cListaProyectos.cpp" />
     <ClCompile Include="cProyecto.cpp" />
     <ClCompile Include="TP1-LABO-PROG.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cEntregas.h" />
     <ClInclude Include="cJefes.h" />
-    <ClInclude Include="cListaEntregas.h" />
+    <ClInclude Include="cListaProyectos.h" />
     <ClInclude Include="cProyecto.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="Header.h" />
