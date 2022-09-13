@@ -4,6 +4,7 @@ cJefes::cJefes(string nombre, string apellido, long int dni, string telefono, in
 {
 	this->disponible = true;
 	this->lista_proyectos = new cListaProyectos(pro_max);
+	this->lista_programadores = new cListaProgramadores();
 }
 
 
@@ -22,7 +23,6 @@ bool cJefes::Asignar_proyecto(cProyecto* proyecto)
 		{
 			cout << "Se agrego correcatmente el proyecto " << proyecto->getnombre() << " al jefe " << Nombre << " " << Apellido << endl;
 			proyecto->setJefe(this);
-			cout << proyecto->getJefe()->Nombre << endl;
 			return true;
 		}
 		else

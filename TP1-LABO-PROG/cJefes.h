@@ -12,6 +12,7 @@ private:
 	const string Telefono;
 	bool disponible;
 	cListaProyectos *lista_proyectos;
+	cListaProgramadores* lista_programadores;
 
 
 public:
@@ -19,5 +20,7 @@ public:
 	~cJefes();
 
 	bool Asignar_proyecto(cProyecto* poyecto);
+	cProyecto* Quitar_ptoyecto();
 
+	void Asignar_Programadore(cProgramadores* programador);
 };

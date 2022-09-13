@@ -4,22 +4,22 @@ cListaProyectos::cListaProyectos(int tam)
 {
 	this->cant_act = 0;
 	this->cant_max = tam;
-	this->listaPro = new cProyecto * [tam];
+	this->lista = new cProyecto * [tam];
 	for (int i = 0; i < cant_max; i++)
-		listaPro[i] = NULL;
+		lista[i] = NULL;
 }
 
 cListaProyectos::~cListaProyectos()
 {
-	if (listaPro != NULL)
-		delete[] listaPro;
+	if(lista != NULL)
+		delete[] lista;
 }
 
 int cListaProyectos::Buscar_id(int id)
 {
 	for (int i = 0; i < cant_act; i++)
 	{
-		if (listaPro[i]->getid() == id)
+		if (lista[i]->getid() == id)
 			return i;
 	}
 	return -1;
@@ -36,7 +36,7 @@ bool cListaProyectos::Agregar(cProyecto* proyecto)
 			return false;
 		else
 		{
-			listaPro[cant_act] = proyecto;
+			lista[cant_act] = proyecto;
 			cant_act++;
 			return true;
 		}

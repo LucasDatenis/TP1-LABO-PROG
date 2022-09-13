@@ -4,5 +4,14 @@
 
 class cListaProgramadores
 {
+private:
+	int cant_act;
+	cProgramadores** array;
+public:
+	cListaProgramadores();
+	~cListaProgramadores();
+
+	void Agregar(cProgramadores* programador);
+	int Buscar(cProgramadores* programador);
 };
 

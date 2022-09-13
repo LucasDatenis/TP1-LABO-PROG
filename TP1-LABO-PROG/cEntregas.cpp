@@ -1,6 +1,6 @@
 #include "cEntregas.h"
 
-cEntregas::cEntregas(int id): id_act(id)
+cEntregas::cEntregas(): id_act()
 {
 	this->nro_entregas = 0;
 	this->Fecha_Entrega = NULL;

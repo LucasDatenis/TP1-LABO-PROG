@@ -12,7 +12,7 @@ private:
 
 public:
 	friend class cProyecto;
-	cEntregas(int id);
+	cEntregas();
 	~cEntregas();
 
 	const int getid() { return this->id_act; }

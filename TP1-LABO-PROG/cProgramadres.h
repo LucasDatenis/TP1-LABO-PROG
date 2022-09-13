@@ -8,7 +8,7 @@ private:
 	//Atributos descriptivos
 	const string Nombre;
 	const string Apellido;
-	const tm Fecha_nac;
+	tm Fecha_nac;
 	const string Telefono;
 	//Atributos funcionales
 	bool Horario; // true: full time ----- false: part time
@@ -18,7 +18,7 @@ private:
 
 public:
 
-	cProgramadores(string nombre, string apellido, tm fecha, string telefono, bool horario, int Tam);
+	cProgramadores(string nombre, string apellido, int dia, int mes, int anio, string telefono, bool horario, int Tam);
 	~cProgramadores();
 
 

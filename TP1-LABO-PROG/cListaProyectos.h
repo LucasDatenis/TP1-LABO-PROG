@@ -7,7 +7,7 @@ class cListaProyectos
 private:
 	int cant_max;
 	int cant_act;
-	cProyecto** listaPro;
+	cProyecto** lista;
 
 public:
 	cListaProyectos(int tam);
