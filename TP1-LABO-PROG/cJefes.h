@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Header.h"
-#include "cListaProyectos.h"
+#include "cListaProgramadores.h"
 
 class cJefes
 {
@@ -11,7 +11,7 @@ private:
 	const long int DNI;
 	const string Telefono;
 	bool disponible;
-	cListaProyectos* lista_proyectos;
+	cListaProyectos *lista_proyectos;
 
 
 public:

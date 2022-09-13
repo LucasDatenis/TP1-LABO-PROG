@@ -1,12 +1,13 @@
 #include "cProyecto.h"
+#include "cJefes.h"
+
 
 int cProyecto::ID_max = 0;
 
-cProyecto::cProyecto(string nombre, Estados estado, time_t inicio, int dia_fin, int mes_fin, int anio_fin): ID(ID_max)
+cProyecto::cProyecto(string nombre, Estados estado, time_t inicio, int dia_fin, int mes_fin, int anio_fin): ID(ID_max), Nombre(nombre)
 {
 	this->Etapa = new cEntregas(ID);
 	this->ID_max++;
-	this->Nombre = nombre;
 	this->Estado = estado;
 	this->Fecha_inicio = inicio;
 	this->Fecha_final.tm_mday = dia_fin;

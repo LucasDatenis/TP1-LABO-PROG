@@ -2,14 +2,15 @@
 
 #include "Enums.h"
 #include "cEntregas.h"
-//#include "cJefes.h"
+
+class cJefes;
 
 class cProyecto
 {
 private:
 	//atributos descriptivos
 #pragma once
-	string Nombre;
+	const string Nombre;
 	time_t Fecha_inicio;
 	tm Fecha_final;
 	const int ID;
@@ -18,7 +19,7 @@ private:
 #pragma once
 	cEntregas*  Etapa;
 	Estados Estado;
-	//cJefes* jefe;
+	cJefes* jefe;
 
 public:
 #pragma once
@@ -29,7 +30,7 @@ public:
 	Estados getestado() { return this->Estado; }
 	const int getid() { return this->ID; }
 	cEntregas* getentregas() { return this->Etapa; }
-	//cJefes* getJefe() { return this->jefe; }
+	cJefes* getJefe() { return this->jefe; }
 #pragma once
-	//void setJefe(cJefes* jefe) { this->jefe = jefe; }
+	void setJefe(cJefes* jefe) { this->jefe = jefe; }
 };

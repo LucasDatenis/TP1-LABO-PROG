@@ -9,7 +9,8 @@ cJefes::cJefes(string nombre, string apellido, long int dni, string telefono, in
 
 cJefes::~cJefes()
 {
-	delete lista_proyectos;
+	if(lista_proyectos != NULL)
+		delete lista_proyectos;
 }
 
 
@@ -20,7 +21,8 @@ bool cJefes::Asignar_proyecto(cProyecto* proyecto)
 		if (lista_proyectos->Agregar(proyecto) == true)
 		{
 			cout << "Se agrego correcatmente el proyecto " << proyecto->getnombre() << " al jefe " << Nombre << " " << Apellido << endl;
-			//proyecto->setJefe(cJefes);
+			proyecto->setJefe(this);
+			cout << proyecto->getJefe()->Nombre << endl;
 			return true;
 		}
 		else
