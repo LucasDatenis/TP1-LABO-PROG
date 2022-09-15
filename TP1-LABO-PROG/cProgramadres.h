@@ -14,6 +14,8 @@ private:
 	bool Horario; // true: full time ----- false: part time
 	bool Disponible;
 	cListaProyectos* Array_proy;
+	static int id_max;
+	const int id;
 
 
 public:
@@ -28,6 +30,7 @@ public:
 	string getNombre() const { return this->Nombre; }
 	string getApellido() const { return this->Apellido; }
 	tm getFechaNac() const { return this->Fecha_nac; }
+	int getId() const { return this->id; }
 
 
 };

@@ -6,12 +6,15 @@ class cListaProgramadores
 {
 private:
 	int cant_act;
-	cProgramadores** array;
+	int cant_max;
+	cProgramadores** Array;
 public:
-	cListaProgramadores();
+	cListaProgramadores(int);
 	~cListaProgramadores();
 
-	void Agregar(cProgramadores* programador);
-	int Buscar(cProgramadores* programador);
+	bool Agregar(cProgramadores* programador);
+	int Buscar_id(int id);
+
+	void Listar();
 };
 

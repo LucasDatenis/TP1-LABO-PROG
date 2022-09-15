@@ -33,6 +33,16 @@ public:
 	Estados getestado() { return this->Estado; }
 	const int getid() { return this->ID; }
 	cJefes* getJefe() { return this->jefe; }
+	int getDiaFin() { return this->Fecha_final.tm_mday; }
+	int getMesFin() { return this->Fecha_final.tm_mon; }
+	int getAnioFin() { return this->Fecha_final.tm_year; }
+	int getDiaInicio() { return this->Fecha_inicio.tm_mday; }
+	int getMesInicio() { return this->Fecha_inicio.tm_mon; }
+	int getAnioInicio() { return this->Fecha_inicio.tm_year; }
 #pragma once
 	void setJefe(cJefes* jefe) { this->jefe = jefe; }
+	void setDiafin(int dia) { this->Fecha_final.tm_mday = dia; }
+	void setMesfin(int mes) { this->Fecha_final.tm_mon = mes; }
+	void setAniofin(int anio) { this->Fecha_final.tm_year = anio;
+}
 };

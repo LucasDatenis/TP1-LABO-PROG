@@ -25,15 +25,28 @@ int cListaProyectos::Buscar_id(int id)
 	return -1;
 }
 
+void cListaProyectos::Listar()
+{
+	for (int i = 0; i < cant_act; i++)
+	{
+		cout << "Proyecto nro: " << i+1 << endl;
+		cout << "Nombre: " << lista[i]->getnombre() << endl;
+		cout << "Fecha propuesta de Fin: " << lista[i]->getDiaFin() << "/" << lista[i]->getMesFin() << "/" << lista[i]->getAnioFin() << endl << endl;
+	 }
+}
+
 bool cListaProyectos::Agregar(cProyecto* proyecto)
 {
 	if (cant_act == cant_max)
-		return false;
+		cout << "No es posible asignar mas proyectos" << endl;
 	else
 	{
 		int pos = Buscar_id(proyecto->getid());
 		if (pos >= 0)
+		{
+			cout << "El proyecto no pertenece a este Jefe" << endl;
 			return false;
+		}
 		else
 		{
 			lista[cant_act] = proyecto;

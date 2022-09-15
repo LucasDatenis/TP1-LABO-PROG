@@ -1,7 +1,10 @@
 #include "cProgramadres.h"
 
-cProgramadores::cProgramadores(string nombre, string apellido, int dia, int mes, int anio, string telefono, bool horario, int Tam): Nombre(nombre), Apellido(apellido), Telefono(telefono)
+int cProgramadores::id_max = 1;
+
+cProgramadores::cProgramadores(string nombre, string apellido, int dia, int mes, int anio, string telefono, bool horario, int Tam): id(id_max), Nombre(nombre), Apellido(apellido), Telefono(telefono)
 {
+	this->id_max++;
 	this->Fecha_nac.tm_year = anio;
 	this->Fecha_nac.tm_mon = mes;
 	this->Fecha_nac.tm_mday = dia;

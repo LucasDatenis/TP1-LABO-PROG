@@ -19,7 +19,7 @@ public:
 	int Buscar_proyecto(cProyecto* proyecto);*/
 	int Buscar_id(int id);
 
-	//void Listar();
+	void Listar();
 
 };
 

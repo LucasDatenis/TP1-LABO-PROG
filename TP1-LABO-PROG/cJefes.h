@@ -20,18 +20,11 @@ public:
 	~cJefes();
 
 	bool Asignar_proyecto(cProyecto* poyecto);
-	cProyecto* Quitar_ptoyecto();
-
-	void Asignar_Programadore(cProgramadores* programador);
+	cProyecto* Quitar_ptoyecto(int id);
+	void Asignar_Programadores(cProgramadores* programador);
 	void Reasignar_programador(cJefes* jefes, cProgramadores* programador);
-
-	void Fin_de_Proyecto(int dia, int mes, int anio, cProyecto* proyecto);
-
+	void Fin_de_Proyecto(cProyecto* proyecto);
+	void Cambiar_Fecha(int dia, int mes, int anio, cProyecto* proyecto);
 	void Revisar_Entrega(cProyecto* proyecto);
-
-
-
-
-
-
+	void Imprimir();
 };

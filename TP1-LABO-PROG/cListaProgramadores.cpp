@@ -1,42 +1,61 @@
 #include "cListaProgramadores.h"
 
-cListaProgramadores::cListaProgramadores()
+cListaProgramadores::cListaProgramadores(int tam)
 {
 	this->cant_act = 0;
-	this->array = new cProgramadores * [3];
-	for (int i = 0; i < 3; i++)
-		this->array[i] = NULL;
+	this->cant_max = tam;
+	this->Array= new cProgramadores * [tam];
+	for (int i = 0; i < cant_max; i++)
+		Array[i] = NULL;
 }
 
 cListaProgramadores::~cListaProgramadores()
 {
-	if(array != NULL)
-		delete[] array;
+	if(Array != NULL)
+		delete[] Array;
 }
 
-void cListaProgramadores::Agregar(cProgramadores* programador)
+
+void cListaProgramadores::Listar()
 {
-	if (cant_act = 3)
-		cout << "No se puede agregar otro programador" << endl;
-	else
+	for (int i = 0; i < cant_act; i++)
 	{
-		int pos = Buscar(programador);
-		if (pos < 0) {
-			array[cant_act] = programador;
-			cant_act++;
-		}
-		else
-			cout << "El programador ya a sido asignado" << endl;
+		cout << "Programador nro: "<< i+1 << endl;
+		cout << Array[i]->getApellido() << ", " << Array[i]->getNombre() << endl;
+		cout << endl;
 	}
 }
 
-int cListaProgramadores::Buscar(cProgramadores* programador) {
-	int pos = -1;
+int cListaProgramadores::Buscar_id(int id)
+{
 	for (int i = 0; i < cant_act; i++)
 	{
-		if (array[i] == programador)
+		if (Array[i]->getId() == id)
 			return i;
 	}
 	return -1;
 }
 
+bool cListaProgramadores::Agregar(cProgramadores* programador)
+{
+	if (cant_act == cant_max)
+	{
+		cout << "No es posible asignar mas proyectos" << endl;
+		return false;
+	}
+	else
+	{
+		int pos = Buscar_id(programador->getId());
+		if (pos >= 0)
+		{
+			cout << "El proyecto no pertenece a este Jefe" << endl;
+			return false;
+		}
+		else
+		{
+			Array[cant_act] = programador;
+			cant_act++;
+			return true;
+		}
+	}
+}
