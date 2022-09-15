@@ -17,14 +17,17 @@ private:
 	static int ID_max;
 	//atributos funcionales;
 #pragma once
-	//cListaEntregas* lista_entregas;
+	cListaEntregas* lista_entregas;
 	Estados Estado;
 	cJefes* jefe;
+	int cant_entregas;
 
 public:
 #pragma once
 	cProyecto(string nombre, Estados estado, int dia_inicio, int mes_inicio, int anio_inicio, int dia_fin, int mes_fin, int anio_fin);
 	~cProyecto();
+#pragma once 
+	void Recibir_entrega(cEntregas* entrega);
 #pragma once
 	string getnombre() { return this->Nombre; }
 	Estados getestado() { return this->Estado; }

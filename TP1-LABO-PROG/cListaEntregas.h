@@ -2,7 +2,7 @@
 
 #include "cEntregas.h"
 
-#define MAX 100
+#define MAX 1000
 
 class cListaEntregas
 {
@@ -14,5 +14,7 @@ private:
 public:
 	cListaEntregas();
 	~cListaEntregas();
+
+	bool Agregar(cEntregas* entrega);
 };
 

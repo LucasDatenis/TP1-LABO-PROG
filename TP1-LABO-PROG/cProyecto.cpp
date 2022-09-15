@@ -15,11 +15,18 @@ cProyecto::cProyecto(string nombre, Estados estado, int dia_inicio, int mes_inic
 	this->Fecha_final.tm_mon = mes_fin;
 	this->Fecha_final.tm_year = anio_fin;
 	this->jefe = NULL;
-	//this->lista_entregas = new cListaEntregas();
+	this->lista_entregas = new cListaEntregas();
 }
 
 cProyecto::~cProyecto()
 {
-	//if (lista_entregas != NULL)
-		//delete[] lista_entregas;
+	if (lista_entregas != NULL)
+		delete lista_entregas;
+}
+
+void cProyecto::Recibir_entrega(cEntregas* entrega)
+{
+	bool verificar = lista_entregas->Agregar(entrega);
+	if (verificar != true)
+		cout << "No es posible asignar la entrega" << endl;
 }

@@ -23,4 +23,15 @@ public:
 	cProyecto* Quitar_ptoyecto();
 
 	void Asignar_Programadore(cProgramadores* programador);
+	void Reasignar_programador(cJefes* jefes, cProgramadores* programador);
+
+	void Fin_de_Proyecto(int dia, int mes, int anio, cProyecto* proyecto);
+
+	void Revisar_Entrega(cProyecto* proyecto);
+
+
+
+
+
+
 };

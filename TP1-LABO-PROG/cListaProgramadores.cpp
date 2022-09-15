@@ -16,7 +16,7 @@ cListaProgramadores::~cListaProgramadores()
 
 void cListaProgramadores::Agregar(cProgramadores* programador)
 {
-	if (cant_act >= 3)
+	if (cant_act = 3)
 		cout << "No se puede agregar otro programador" << endl;
 	else
 	{
@@ -39,3 +39,4 @@ int cListaProgramadores::Buscar(cProgramadores* programador) {
 	}
 	return -1;
 }
+

@@ -14,3 +14,20 @@ cListaEntregas::~cListaEntregas()
 	if (lista != NULL)
 		delete[] lista;
 }
+
+
+bool cListaEntregas::Agregar(cEntregas* entrega)
+{
+	if (cant_act >= cant_max)
+	{
+		cout << "Se llego al limite de entregas" << endl;
+		return false;
+	}
+	else
+	{
+		lista[cant_act] = entrega;
+		cant_act++;
+		lista[cant_act]->setNroentrega(cant_act);
+		return true;
+	}
+}

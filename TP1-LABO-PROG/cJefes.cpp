@@ -37,3 +37,22 @@ bool cJefes::Asignar_proyecto(cProyecto* proyecto)
 		return false;
 	}
 }
+
+void cJefes::Reasignar_programador(cJefes* jefes, cProgramadores* programador)
+{
+	int pos = lista_programadores->Buscar(programador);
+	if (pos < 0)
+		cout << "El programador no esta asignado a este Jefe" << endl;
+	else
+	{
+
+	}
+}
+
+void cJefes::Revisar_Entrega(cProyecto* proyecto)
+{
+	if (this == proyecto->getJefe())
+	{
+		proyecto->Recibir_entrega();
+	}
+}
