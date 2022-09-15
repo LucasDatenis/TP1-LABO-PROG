@@ -37,7 +37,7 @@ bool cJefes::Asignar_proyecto(cProyecto* proyecto)
 	}
 }
 
-void cJefes::Asignar_Programadores(cProgramadores* programador)+
+void cJefes::Asignar_Programadores(cProgramadores* programador)
 
 {
 	bool verificar = lista_programadores->Agregar(programador);
