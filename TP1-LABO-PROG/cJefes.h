@@ -27,4 +27,5 @@ public:
 	void Cambiar_Fecha(int dia, int mes, int anio, cProyecto* proyecto);
 	void Revisar_Entrega(cProyecto* proyecto);
 	void Imprimir();
+	void Imprimir_por_Estado_y_Anio(int anio, Estados estado);
 };

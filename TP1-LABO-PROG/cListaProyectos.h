@@ -14,12 +14,14 @@ public:
 	~cListaProyectos();
 
 	bool Agregar(cProyecto* proyec);
-	/*cProyecto* Quitar(int id);
+	cProyecto* Quitar(int id);
+	/*
 	void Eliminar(int id);
 	int Buscar_proyecto(cProyecto* proyecto);*/
 	int Buscar_id(int id);
 
 	void Listar();
+	void Listar_2(int, Estados);
 
 };
 

@@ -1,4 +1,5 @@
-#include "cProgramadres.h"
+#include "cProgramadores.h"
+#include "cJefes.h"
 
 int cProgramadores::id_max = 1;
 
@@ -10,11 +11,34 @@ cProgramadores::cProgramadores(string nombre, string apellido, int dia, int mes,
 	this->Fecha_nac.tm_mday = dia;
 	this->Horario = horario;
 	this->Disponible = true;
-	this->Array_proy = new cListaProyectos(Tam);
+	this->Array = new cListaProyectos(Tam);
 }
 
 cProgramadores::~cProgramadores()
 {
-	if (Array_proy != NULL)
-		delete Array_proy;
+	if (Array != NULL)
+		delete Array;
+}
+
+cProyecto* cProgramadores::Fin_Proyecto(cProyecto* proyecto)
+{
+	if (Array->Buscar_id(proyecto->getid()) >= 0)
+	{
+		if (proyecto->getestado() == Estados::Finalizado)
+		{
+			cProyecto* aux;
+			aux = Array->Quitar(proyecto->getid());
+			
+			return aux;
+		}
+		else
+			return NULL;
+	}
+	else
+		return NULL;
+}
+
+void cProgramadores::Entregar_Proyecto(cEntregas* entrega, cProyecto* proyecto)
+{
+
 }

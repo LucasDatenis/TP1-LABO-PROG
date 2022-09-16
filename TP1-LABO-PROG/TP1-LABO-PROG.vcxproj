@@ -142,7 +142,7 @@
     <ClInclude Include="cListaEntregas.h" />
     <ClInclude Include="cListaProgramadores.h" />
     <ClInclude Include="cListaProyectos.h" />
-    <ClInclude Include="cProgramadres.h" />
+    <ClInclude Include="cProgramadores.h" />
     <ClInclude Include="cProyecto.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="Header.h" />

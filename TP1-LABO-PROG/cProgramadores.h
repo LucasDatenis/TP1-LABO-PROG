@@ -2,6 +2,8 @@
 
 #include "cListaProyectos.h"
 
+class cJefes;
+
 class cProgramadores
 {
 private:
@@ -13,9 +15,10 @@ private:
 	//Atributos funcionales
 	bool Horario; // true: full time ----- false: part time
 	bool Disponible;
-	cListaProyectos* Array_proy;
+	cListaProyectos* Array;
 	static int id_max;
 	const int id;
+	cJefes* jefe;
 
 
 public:
@@ -23,6 +26,8 @@ public:
 	cProgramadores(string nombre, string apellido, int dia, int mes, int anio, string telefono, bool horario, int Tam);
 	~cProgramadores();
 
+	cProyecto* Fin_Proyecto(cProyecto* proyecto);
+	void Entregar_Proyecto(cEntregas* entrega, cProyecto* proyecto);
 
 	bool getHorario() { return this->Horario; }
 	bool getDisponible() { return this->Disponible; }
@@ -32,6 +37,6 @@ public:
 	tm getFechaNac() const { return this->Fecha_nac; }
 	int getId() const { return this->id; }
 
-
+	void setJefe(cJefes* jefe) { this->jefe = jefe; }
 };
 

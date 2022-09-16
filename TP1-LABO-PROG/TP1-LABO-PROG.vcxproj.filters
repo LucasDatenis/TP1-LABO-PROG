@@ -59,7 +59,7 @@
     <ClInclude Include="cJefes.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="cProgramadres.h">
+    <ClInclude Include="cProgramadores.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="cListaProgramadores.h">

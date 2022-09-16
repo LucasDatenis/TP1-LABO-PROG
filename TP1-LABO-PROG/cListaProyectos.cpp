@@ -35,6 +35,26 @@ void cListaProyectos::Listar()
 	 }
 }
 
+void cListaProyectos::Listar_2(int anio, Estados estado)
+{
+	switch (estado)
+	{
+	case Estados::Espera:
+		cout << "En espera en " << anio << endl;
+	case Estados::Desarrollo:
+		cout << "En desarrollo en " << anio << endl;
+	case Estados::Finalizado:
+		cout << "Finalizados en " << anio << endl;
+	}
+	for(int i = 0; i < cant_act; i++)
+	{
+		if (lista[i]->getestado() == estado && lista[i]->getAnioFin() == anio)
+		{
+			cout << "Proyecto: " << lista[i]->getnombre() << endl;
+		}
+	}
+}
+
 bool cListaProyectos::Agregar(cProyecto* proyecto)
 {
 	if (cant_act == cant_max)
@@ -56,20 +76,20 @@ bool cListaProyectos::Agregar(cProyecto* proyecto)
 	}
 }
 
-//cProyecto* cListaProyectos::Quitar(int id)
-//{
-//	int pos = Buscar_id(id);
-//	if (pos > 0)
-//		return NULL;
-//	else
-//	{
-//		cProyecto* aux = listaPro[pos];
-//		for (int i = pos; i < cant_act - 1; i++)
-//		{
-//			listaPro[i] = listaPro[i + 1];
-//		}
-//		cant_act--;
-//		listaPro[cant_act] = NULL;
-//		return aux;
-//	}
-//}
+cProyecto* cListaProyectos::Quitar(int id)
+{
+	int pos = Buscar_id(id);
+	if (pos > 0)
+		return NULL;
+	else
+	{
+		cProyecto* aux = lista[pos];
+		for (int i = pos; i < cant_act - 1; i++)
+		{
+			lista[i] = lista[i + 1];
+		}
+		cant_act--;
+		lista[cant_act] = NULL;
+		return aux;
+	}
+}

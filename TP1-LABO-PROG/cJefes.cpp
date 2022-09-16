@@ -42,10 +42,14 @@ void cJefes::Asignar_Programadores(cProgramadores* programador)
 {
 	bool verificar = lista_programadores->Agregar(programador);
 	if (verificar == true)
+	{
+		programador->setJefe(this);
 		cout << "Se asigno el programador" << endl;
+	}
 	else
 		cout << "No es posible asignar el prgramador" << endl;
 }
+
 
 
 
