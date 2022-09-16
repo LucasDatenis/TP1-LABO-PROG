@@ -36,6 +36,26 @@ int cListaProgramadores::Buscar_id(int id)
 	return -1;
 }
 
+cProgramadores* cListaProgramadores::Quitar(cProgramadores* programador)
+{
+	int pos = Buscar_id(programador->getId());
+	if (pos < 0)
+		return nullpt;
+	else
+	{
+		cProgramadores* aux;
+		aux = Array[pos];
+		for (int i = pos; i < cant_act - 1; i++)
+		{
+			Array[i] = Array[i + 1];
+		}
+		Array[cant_act] = NULL;
+		cant_act--;
+		return aux;
+	}
+	return nullptr;
+}
+
 bool cListaProgramadores::Agregar(cProgramadores* programador)
 {
 	if (cant_act == cant_max)

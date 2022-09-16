@@ -14,7 +14,7 @@ public:
 
 	bool Agregar(cProgramadores* programador);
 	int Buscar_id(int id);
-
+	cProgramadores* Quitar(cProgramadores* programador);
 	void Listar();
 };
 

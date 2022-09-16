@@ -49,14 +49,16 @@ void cJefes::Asignar_Programadores(cProgramadores* programador)
 
 
 
-void cJefes::Reasignar_programador(cJefes* jefes, cProgramadores* programador)
+void cJefes::Reasignar_programador(cJefes* jefe, cProgramadores* programador)
 {
 	int pos = lista_programadores->Buscar_id(programador->getId());
 	if (pos < 0)
 		cout << "El programador no esta asignado a este Jefe" << endl;
 	else
 	{
-		lista_programadores->Agregar(programador);
+		cProgramadores* aux = lista_programadores->Quitar(programador);
+		jefe->lista_programadores->Agregar(programador);
+		delete aux;
 	}
 }
 
