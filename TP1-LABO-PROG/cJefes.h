@@ -23,7 +23,7 @@ public:
 	cProyecto* Quitar_ptoyecto(int id);
 	void Asignar_Programadores(cProgramadores* programador);
 	void Reasignar_programador(cJefes* jefes, cProgramadores* programador);
-	void Fin_de_Proyecto(cProyecto* proyecto);
+	cJefes* Fin_de_Proyecto(cProyecto* proyecto);
 	void Cambiar_Fecha(int dia, int mes, int anio, cProyecto* proyecto);
 	void Revisar_Entrega(cProyecto* proyecto);
 	void Imprimir();

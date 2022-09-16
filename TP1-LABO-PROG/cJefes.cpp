@@ -60,6 +60,24 @@ void cJefes::Reasignar_programador(cJefes* jefes, cProgramadores* programador)
 	}
 }
 
+cJefes* cJefes::Fin_de_Proyecto(cProyecto* proyecto)
+{
+	if (lista_proyectos->Buscar_id(proyecto->getid()) >= 0)
+	{
+		if (proyecto->getestado() == Estados::Finalizado)
+		{
+			cJefes* aux;
+			aux = proyecto->getJefe();
+			proyecto->setJefe(NULL);
+			return aux;
+		}
+		else
+			return NULL;
+	}
+	else
+		return NULL;
+}
+
 void cJefes::Cambiar_Fecha(int dia, int mes, int anio, cProyecto* proyecto)
 {
 	int pos = lista_proyectos->Buscar_id(proyecto->getid());
