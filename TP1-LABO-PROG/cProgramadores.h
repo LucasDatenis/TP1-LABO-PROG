@@ -27,7 +27,7 @@ public:
 	~cProgramadores();
 
 	cProyecto* Fin_Proyecto(cProyecto* proyecto);
-	void Entregar_Proyecto(cEntregas* entrega, cProyecto* proyecto);
+	void Entregar_Proyecto(cEntregas* entrega, cProyecto* proyecto, Estados estado, int dia, int mes, int anio);
 
 	bool getHorario() { return this->Horario; }
 	bool getDisponible() { return this->Disponible; }

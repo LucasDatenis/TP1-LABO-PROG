@@ -19,5 +19,8 @@ public:
 	int getNroEntregas() { return this->nro_entregas; }
 
 	void setNroentrega(int nro) { this->nro_entregas = nro; }
+	void setDiaEntrega(int dia) { this->Fecha_Entrega.tm_mday = dia; }
+	void setMesEntrega(int mes) { this->Fecha_Entrega.tm_mon = mes; }
+	void setAnioEntrega(int anio) { this->Fecha_Entrega.tm_year = anio; }
 
 };

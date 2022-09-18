@@ -97,11 +97,27 @@ void cJefes::Cambiar_Fecha(int dia, int mes, int anio, cProyecto* proyecto)
 	}
 }
 
-void cJefes::Revisar_Entrega(cProyecto* proyecto)
+void cJefes::Revisar_Entrega(cProyecto* proyecto, cEntregas* entrega, Estados estado)
 {
-	if (this == proyecto->getJefe())
-	{
-	}
+	
+	bool verificojefe = Asignar_proyecto(proyecto);
+		if (verificojefe == false) {
+			cout << "Hubo un error con el jefe" << endl;
+			return;
+		}
+		else {
+			proyecto->Recibir_entrega(entrega);
+			proyecto->setestado(estado);
+			int numrandom = rand() % 2 + 1;//numero random para la probabilidad del 50%
+			if (proyecto->getestado() == Estados::Finalizado && numrandom == 1) {
+				proyecto->Recibir_entrega(entrega);//segunda entrega
+			}
+			else {
+				cout << "La entrega no fue aceptada" << endl;
+				return;
+			}
+			
+		}
 }
 
 void cJefes::Imprimir()

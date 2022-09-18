@@ -38,7 +38,10 @@ cProyecto* cProgramadores::Fin_Proyecto(cProyecto* proyecto)
 		return NULL;
 }
 
-void cProgramadores::Entregar_Proyecto(cEntregas* entrega, cProyecto* proyecto)
+void cProgramadores::Entregar_Proyecto(cEntregas* entrega, cProyecto* proyecto, Estados estado, int dia, int mes, int anio)
 {
-
+	jefe->Revisar_Entrega(proyecto, entrega, estado);
+	entrega->setDiaEntrega(dia);
+	entrega->setMesEntrega(mes);
+	entrega->setAnioEntrega(anio);
 }

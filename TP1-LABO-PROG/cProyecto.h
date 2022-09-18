@@ -43,6 +43,6 @@ public:
 	void setJefe(cJefes* jefe) { this->jefe = jefe; }
 	void setDiafin(int dia) { this->Fecha_final.tm_mday = dia; }
 	void setMesfin(int mes) { this->Fecha_final.tm_mon = mes; }
-	void setAniofin(int anio) { this->Fecha_final.tm_year = anio;
-}
+	void setAniofin(int anio) { this->Fecha_final.tm_year = anio;}
+	void setestado(Estados estado) { this->Estado = estado; }
 };
