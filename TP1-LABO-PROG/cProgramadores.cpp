@@ -11,6 +11,7 @@ cProgramadores::cProgramadores(string nombre, string apellido, int dia, int mes,
 	this->Fecha_nac.tm_mday = dia;
 	this->Horario = horario;
 	this->Disponible = true;
+	this->jefe = NULL;
 	this->Array = new cListaProyectos(Tam);
 }
 
@@ -41,7 +42,10 @@ cProyecto* cProgramadores::Fin_Proyecto(cProyecto* proyecto)
 void cProgramadores::Entregar_Proyecto(cEntregas* entrega, cProyecto* proyecto, Estados estado, int dia, int mes, int anio)
 {
 	jefe->Revisar_Entrega(proyecto, entrega, estado);
-	entrega->setDiaEntrega(dia);
-	entrega->setMesEntrega(mes);
-	entrega->setAnioEntrega(anio);
+	entrega->Actualizar(this->jefe, dia, mes, anio);
+}
+
+void cProgramadores::Recibir_Proyecto(cProyecto* proyecto)
+{
+	
 }

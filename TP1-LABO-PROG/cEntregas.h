@@ -2,6 +2,8 @@
 
 #include "Header.h"
 
+class cJefes;
+
 class cEntregas
 {
 private:
@@ -14,6 +16,8 @@ public:
 	friend class cProyecto;
 	cEntregas(int, int, int);
 	~cEntregas();
+
+	void Actualizar(cJefes* jefe, int dia, int mes, int anio);
 
 	const int getid() { return this->id_act; }
 	int getNroEntregas() { return this->nro_entregas; }

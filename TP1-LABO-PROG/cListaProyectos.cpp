@@ -11,8 +11,12 @@ cListaProyectos::cListaProyectos(int tam)
 
 cListaProyectos::~cListaProyectos()
 {
-	if(lista != NULL)
+	if (lista != NULL)
+	{
+		for (int i = 0; i < cant_act; i++)
+			delete lista[i];
 		delete[] lista;
+	}
 }
 
 int cListaProyectos::Buscar_id(int id)
@@ -57,9 +61,7 @@ void cListaProyectos::Listar_2(int anio, Estados estado)
 
 bool cListaProyectos::Agregar(cProyecto* proyecto)
 {
-	if (cant_act == cant_max)
-		cout << "No es posible asignar mas proyectos" << endl;
-	else
+	if (cant_act < cant_max)
 	{
 		int pos = Buscar_id(proyecto->getid());
 		if (pos >= 0)
@@ -73,6 +75,11 @@ bool cListaProyectos::Agregar(cProyecto* proyecto)
 			cant_act++;
 			return true;
 		}
+	}
+	else
+	{
+		cout << "No es posible asignar mas proyectos" << endl;
+		return false;
 	}
 }
 

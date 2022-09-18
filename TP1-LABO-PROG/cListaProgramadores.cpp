@@ -40,7 +40,7 @@ cProgramadores* cListaProgramadores::Quitar(cProgramadores* programador)
 {
 	int pos = Buscar_id(programador->getId());
 	if (pos < 0)
-		return nullpt;
+		return NULL;
 	else
 	{
 		cProgramadores* aux;

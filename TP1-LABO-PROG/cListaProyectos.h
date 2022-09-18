@@ -23,5 +23,7 @@ public:
 	void Listar();
 	void Listar_2(int, Estados);
 
+	int getCantActual() { return this->cant_act; }
+
 };
 

@@ -3,8 +3,10 @@
 cJefes::cJefes(string nombre, string apellido, long int dni, string telefono, int pro_max) : DNI(dni), Nombre(nombre), Apellido(apellido), Telefono(telefono)
 {
 	this->disponible = true;
+	this->proyectos_max = pro_max;
 	this->lista_proyectos = new cListaProyectos(pro_max);
 	this->lista_programadores = new cListaProgramadores(5);
+
 }
 
 
@@ -19,7 +21,9 @@ bool cJefes::Asignar_proyecto(cProyecto* proyecto)
 {
 	if (disponible == true)
 	{
-		if (lista_proyectos->Agregar(proyecto) == true)
+		//El valor de retorno de Agregar es un bool, verdadero si hay espacio y falso si no lo hay
+		disponible = lista_proyectos->Agregar(proyecto);
+		if (disponible == true)
 		{
 			proyecto->setJefe(this);
 			return true;
@@ -51,8 +55,6 @@ void cJefes::Asignar_Programadores(cProgramadores* programador)
 }
 
 
-
-
 void cJefes::Reasignar_programador(cJefes* jefe, cProgramadores* programador)
 {
 	int pos = lista_programadores->Buscar_id(programador->getId());
@@ -62,6 +64,7 @@ void cJefes::Reasignar_programador(cJefes* jefe, cProgramadores* programador)
 	{
 		cProgramadores* aux = lista_programadores->Quitar(programador);
 		jefe->lista_programadores->Agregar(programador);
+		cout << "Se reasigno el programador a " << jefe->Apellido << " " << jefe->Nombre << endl;
 		delete aux;
 	}
 }
@@ -100,24 +103,26 @@ void cJefes::Cambiar_Fecha(int dia, int mes, int anio, cProyecto* proyecto)
 void cJefes::Revisar_Entrega(cProyecto* proyecto, cEntregas* entrega, Estados estado)
 {
 	
-	bool verificojefe = Asignar_proyecto(proyecto);
-		if (verificojefe == false) {
-			cout << "Hubo un error con el jefe" << endl;
-			return;
+	int pos = lista_proyectos->Buscar_id(proyecto->getid());
+	if(pos < 0) {
+		cout << "Hubo un error con el jefe" << endl;
+		return;
+	}
+	else {
+		proyecto->Recibir_entrega(entrega);
+		proyecto->setestado(estado);
+		int numrandom = rand() % 2 + 1;//numero random para la probabilidad del 50%
+		if (proyecto->getestado() == Estados::Finalizado && numrandom == 1) {
+			proyecto->Recibir_entrega(entrega);//segunda entrega
+			cJefes* aux = Fin_de_Proyecto(proyecto);
+			delete aux;
 		}
 		else {
-			proyecto->Recibir_entrega(entrega);
-			proyecto->setestado(estado);
-			int numrandom = rand() % 2 + 1;//numero random para la probabilidad del 50%
-			if (proyecto->getestado() == Estados::Finalizado && numrandom == 1) {
-				proyecto->Recibir_entrega(entrega);//segunda entrega
-			}
-			else {
-				cout << "La entrega no fue aceptada" << endl;
-				return;
-			}
-			
+			cout << "La entrega no fue aceptada" << endl;
+			return;
 		}
+			
+	}
 }
 
 void cJefes::Imprimir()
@@ -126,4 +131,9 @@ void cJefes::Imprimir()
 	lista_proyectos->Listar();
 	lista_programadores->Listar();
 
+}
+
+void cJefes::Imprimir_por_Estado_y_Anio(int anio, Estados estado)
+{
+	lista_proyectos->Listar_2(anio, estado);
 }

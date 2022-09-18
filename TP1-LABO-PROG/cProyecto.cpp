@@ -16,6 +16,7 @@ cProyecto::cProyecto(string nombre, Estados estado, int dia_inicio, int mes_inic
 	this->Fecha_final.tm_year = anio_fin;
 	this->jefe = NULL;
 	this->lista_entregas = new cListaEntregas();
+	this->cant_entregas = 0;
 }
 
 cProyecto::~cProyecto()
@@ -27,10 +28,9 @@ cProyecto::~cProyecto()
 void cProyecto::Recibir_entrega(cEntregas* entrega)
 {
 	bool verificar = lista_entregas->Agregar(entrega);
-	if (verificar != true){
+	if (verificar != true) {
 		cout << "No es posible asignar la entrega" << endl;
-		return;
 	}
-	return;
-		
+	else
+		entrega->setNroentrega(cant_entregas);
 }
