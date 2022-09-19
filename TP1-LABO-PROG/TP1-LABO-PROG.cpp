@@ -10,7 +10,7 @@ int main()
 	cJefes* jefe2 = new cJefes("Julian", "Pereyra", 20600480, "3364-5899", 10);
 
 	cProyecto* proyecto1 = new cProyecto("Destiny", Estados::Espera, 15, 9, 2022, 30, 11, 2022);
-	cProyecto* proyecto2 = new cProyecto("Final Fantasy", Estados::Desarrollo, 15, 9, 2022, 30, 11, 2022);
+	cProyecto* proyecto2 = new cProyecto("Final Fantasy", Estados::Desarrollo, 15, 9, 2023, 30, 11, 2022);
 	cProyecto* proyecto3 = new cProyecto("Chaos Reach", Estados::Espera, 15, 9, 2022, 30, 11, 2024);
 	cProyecto* proyecto4 = new cProyecto("Caos Reach", Estados::Espera, 15, 9, 2022, 30, 11, 2024);
 

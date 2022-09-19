@@ -41,9 +41,8 @@ void cListaProyectos::Listar()
 
 void cListaProyectos::Listar_2(int anio, Estados estado)
 {
-	switch (estado)
+	if (Estados::Espera == estado)
 	{
-	case Estados::Espera:
 		cout << "En espera en " << anio << endl;
 		for (int i = 0; i < cant_act; i++)
 		{
@@ -52,7 +51,9 @@ void cListaProyectos::Listar_2(int anio, Estados estado)
 				cout << "Proyecto: " << lista[i]->getnombre() << endl;
 			}
 		}
-	case Estados::Desarrollo:
+	}
+	else if( Estados::Desarrollo == estado)
+	{
 		cout << "En desarrollo en " << anio << endl;
 		for (int i = 0; i < cant_act; i++)
 		{
@@ -61,7 +62,9 @@ void cListaProyectos::Listar_2(int anio, Estados estado)
 				cout << "Proyecto: " << lista[i]->getnombre() << endl;
 			}
 		}
-	case Estados::Finalizado:
+	}
+	else
+	{
 		cout << "Finalizados en " << anio << endl;
 		for (int i = 0; i < cant_act; i++)
 		{
