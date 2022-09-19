@@ -45,18 +45,33 @@ void cListaProyectos::Listar_2(int anio, Estados estado)
 	{
 	case Estados::Espera:
 		cout << "En espera en " << anio << endl;
+		for (int i = 0; i < cant_act; i++)
+		{
+			if (lista[i]->getestado() == estado && lista[i]->getAnioFin() == anio)
+			{
+				cout << "Proyecto: " << lista[i]->getnombre() << endl;
+			}
+		}
 	case Estados::Desarrollo:
 		cout << "En desarrollo en " << anio << endl;
+		for (int i = 0; i < cant_act; i++)
+		{
+			if (lista[i]->getestado() == estado && lista[i]->getAnioFin() == anio)
+			{
+				cout << "Proyecto: " << lista[i]->getnombre() << endl;
+			}
+		}
 	case Estados::Finalizado:
 		cout << "Finalizados en " << anio << endl;
-	}
-	for(int i = 0; i < cant_act; i++)
-	{
-		if (lista[i]->getestado() == estado && lista[i]->getAnioFin() == anio)
+		for (int i = 0; i < cant_act; i++)
 		{
-			cout << "Proyecto: " << lista[i]->getnombre() << endl;
+			if (lista[i]->getestado() == estado && lista[i]->getAnioFin() == anio)
+			{
+				cout << "Proyecto: " << lista[i]->getnombre() << endl;
+			}
 		}
 	}
+
 }
 
 bool cListaProyectos::Agregar(cProyecto* proyecto)
@@ -86,7 +101,7 @@ bool cListaProyectos::Agregar(cProyecto* proyecto)
 cProyecto* cListaProyectos::Quitar(int id)
 {
 	int pos = Buscar_id(id);
-	if (pos > 0)
+	if (pos < 0)
 		return NULL;
 	else
 	{
@@ -98,5 +113,13 @@ cProyecto* cListaProyectos::Quitar(int id)
 		cant_act--;
 		lista[cant_act] = NULL;
 		return aux;
+	}
+}
+
+void cListaProyectos::Quitar_Completo()
+{
+	for (int i = 0; i < cant_act; i++)
+	{
+		lista[i] = NULL;
 	}
 }

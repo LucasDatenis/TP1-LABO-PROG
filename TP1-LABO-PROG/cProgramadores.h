@@ -20,7 +20,6 @@ private:
 	const int id;
 	cJefes* jefe;
 
-
 public:
 
 	cProgramadores(string nombre, string apellido, int dia, int mes, int anio, string telefono, bool horario, int Tam);
@@ -37,7 +36,7 @@ public:
 	string getApellido() const { return this->Apellido; }
 	tm getFechaNac() const { return this->Fecha_nac; }
 	int getId() const { return this->id; }
-
+	cListaProyectos* getListaProyectos() { return this->Array; }
 	void setJefe(cJefes* jefe) { this->jefe = jefe; }
 };
 

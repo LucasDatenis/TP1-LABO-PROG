@@ -15,9 +15,7 @@ public:
 
 	bool Agregar(cProyecto* proyec);
 	cProyecto* Quitar(int id);
-	/*
-	void Eliminar(int id);
-	int Buscar_proyecto(cProyecto* proyecto);*/
+	void Quitar_Completo();
 	int Buscar_id(int id);
 
 	void Listar();

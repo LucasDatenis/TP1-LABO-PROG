@@ -14,6 +14,8 @@ cJefes::~cJefes()
 {
 	if(lista_proyectos != NULL)
 		delete lista_proyectos;
+	if (lista_programadores != NULL)
+		delete lista_programadores;
 }
 
 
@@ -64,6 +66,8 @@ void cJefes::Reasignar_programador(cJefes* jefe, cProgramadores* programador)
 	{
 		cProgramadores* aux = lista_programadores->Quitar(programador);
 		jefe->lista_programadores->Agregar(programador);
+		for (int i = 0; i < programador->getListaProyectos()->getCantActual(); i++)
+			programador->getListaProyectos()->Quitar_Completo();
 		cout << "Se reasigno el programador a " << jefe->Apellido << " " << jefe->Nombre << endl;
 	}
 }
@@ -109,11 +113,11 @@ bool cJefes::Revisar_Entrega(cProyecto* proyecto, cEntregas* entrega, Estados es
 	else {
 		if (proyecto->getEstadoEntega() != true)
 		{
-			proyecto->Recibir_entrega(entrega);
-			proyecto->setestado(estado);
-			int numrandom = rand() % 2;//numero random para la probabilidad del 50%
+			//proyecto->Recibir_entrega(entrega);
+			int numrandom = rand() % 2 + 1;//numero random para la probabilidad del 50%
 			if (proyecto->getestado() == Estados::Finalizado && numrandom == 1) {
 				proyecto->Recibir_entrega(entrega);//segunda entrega
+				proyecto->setestado(estado);
 				cJefes* aux = Fin_de_Proyecto(proyecto);
 				entrega->setAceptada(true);
 				cProyecto* auxp = lista_proyectos->Quitar(proyecto->getid());
