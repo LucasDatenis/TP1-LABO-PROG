@@ -21,6 +21,7 @@ private:
 	Estados Estado;
 	cJefes* jefe;
 	int cant_entregas;
+	bool entregado;
 
 public:
 #pragma once
@@ -33,6 +34,7 @@ public:
 	Estados getestado() { return this->Estado; }
 	const int getid() { return this->ID; }
 	cJefes* getJefe() { return this->jefe; }
+	bool getEstadoEntega() { return this->entregado; }
 	int getDiaFin() { return this->Fecha_final.tm_mday; }
 	int getMesFin() { return this->Fecha_final.tm_mon; }
 	int getAnioFin() { return this->Fecha_final.tm_year; }
@@ -45,4 +47,5 @@ public:
 	void setMesfin(int mes) { this->Fecha_final.tm_mon = mes; }
 	void setAniofin(int anio) { this->Fecha_final.tm_year = anio;}
 	void setestado(Estados estado) { this->Estado = estado; }
+	void setEstadoEntrega(bool entregado) { this->entregado = entregado; }
 };

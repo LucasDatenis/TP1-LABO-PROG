@@ -17,6 +17,7 @@ cProyecto::cProyecto(string nombre, Estados estado, int dia_inicio, int mes_inic
 	this->jefe = NULL;
 	this->lista_entregas = new cListaEntregas();
 	this->cant_entregas = 0;
+	this->entregado = false;
 }
 
 cProyecto::~cProyecto()

@@ -41,11 +41,35 @@ cProyecto* cProgramadores::Fin_Proyecto(cProyecto* proyecto)
 
 void cProgramadores::Entregar_Proyecto(cEntregas* entrega, cProyecto* proyecto, Estados estado, int dia, int mes, int anio)
 {
-	jefe->Revisar_Entrega(proyecto, entrega, estado);
-	entrega->Actualizar(this->jefe, dia, mes, anio);
+	bool revisar =	jefe->Revisar_Entrega(proyecto, entrega, estado);
+	if (revisar != true)
+		return;
+	else
+	{
+		entrega->Actualizar(this->jefe, dia, mes, anio);
+		cProyecto* aux = Array->Quitar(proyecto->getid());
+	}
+
 }
 
 void cProgramadores::Recibir_Proyecto(cProyecto* proyecto)
 {
-	
+	int pos = this->jefe->getListaProyectos()->Buscar_id(proyecto->getid());
+	if (pos < 0)
+		cout << "El proyecto no corresponde con el Jefe del programador" << endl;
+	else
+	{
+		if (Disponible == true)
+		{
+			this->Disponible = Array->Agregar(proyecto);
+			if (Disponible != true)
+			{
+				cout << "El programador no esta disponible" << endl;
+				return;
+			}
+			else
+				return;
+		}
+	}
+
 }

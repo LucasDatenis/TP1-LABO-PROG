@@ -14,7 +14,7 @@ private:
 
 public:
 	friend class cProyecto;
-	cEntregas(int, int, int);
+	cEntregas();
 	~cEntregas();
 
 	void Actualizar(cJefes* jefe, int dia, int mes, int anio);
@@ -26,5 +26,6 @@ public:
 	void setDiaEntrega(int dia) { this->Fecha_Entrega.tm_mday = dia; }
 	void setMesEntrega(int mes) { this->Fecha_Entrega.tm_mon = mes; }
 	void setAnioEntrega(int anio) { this->Fecha_Entrega.tm_year = anio; }
+	void setAceptada(bool aceptada) { this->aceptada = aceptada; }
 
 };

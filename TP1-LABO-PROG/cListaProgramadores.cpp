@@ -38,11 +38,14 @@ int cListaProgramadores::Buscar_id(int id)
 
 cProgramadores* cListaProgramadores::Quitar(cProgramadores* programador)
 {
+	//Verifico que el rprogramador exista en la lista asi se puede quitar
 	int pos = Buscar_id(programador->getId());
+	//Si no existe, no se quita por lo tanto se retorna NULL
 	if (pos < 0)
 		return NULL;
 	else
 	{
+		//Si existe se quita de la lista y se rotarna por la copia del auxiliar
 		cProgramadores* aux;
 		aux = Array[pos];
 		for (int i = pos; i < cant_act - 1; i++)
@@ -53,7 +56,6 @@ cProgramadores* cListaProgramadores::Quitar(cProgramadores* programador)
 		cant_act--;
 		return aux;
 	}
-	return nullptr;
 }
 
 bool cListaProgramadores::Agregar(cProgramadores* programador)

@@ -25,8 +25,8 @@ bool cListaEntregas::Agregar(cEntregas* entrega)
 	else
 	{
 		lista[cant_act] = entrega;
+		entrega->setNroentrega(cant_act);
 		cant_act++;
-		lista[cant_act]->setNroentrega(cant_act);
 		return true;
 	}
 }

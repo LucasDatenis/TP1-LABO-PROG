@@ -65,7 +65,6 @@ void cJefes::Reasignar_programador(cJefes* jefe, cProgramadores* programador)
 		cProgramadores* aux = lista_programadores->Quitar(programador);
 		jefe->lista_programadores->Agregar(programador);
 		cout << "Se reasigno el programador a " << jefe->Apellido << " " << jefe->Nombre << endl;
-		delete aux;
 	}
 }
 
@@ -100,30 +99,40 @@ void cJefes::Cambiar_Fecha(int dia, int mes, int anio, cProyecto* proyecto)
 	}
 }
 
-void cJefes::Revisar_Entrega(cProyecto* proyecto, cEntregas* entrega, Estados estado)
+bool cJefes::Revisar_Entrega(cProyecto* proyecto, cEntregas* entrega, Estados estado)
 {
-	
 	int pos = lista_proyectos->Buscar_id(proyecto->getid());
 	if(pos < 0) {
-		cout << "Hubo un error con el jefe" << endl;
-		return;
+		cout << "El proyecto ha finalizado o el proyecto no corresponde con el Jefe" << endl;
+		return false;
 	}
 	else {
-		proyecto->Recibir_entrega(entrega);
-		proyecto->setestado(estado);
-		int numrandom = rand() % 2 + 1;//numero random para la probabilidad del 50%
-		if (proyecto->getestado() == Estados::Finalizado && numrandom == 1) {
-			proyecto->Recibir_entrega(entrega);//segunda entrega
-			cJefes* aux = Fin_de_Proyecto(proyecto);
-			delete aux;
+		if (proyecto->getEstadoEntega() != true)
+		{
+			proyecto->Recibir_entrega(entrega);
+			proyecto->setestado(estado);
+			int numrandom = rand() % 2;//numero random para la probabilidad del 50%
+			if (proyecto->getestado() == Estados::Finalizado && numrandom == 1) {
+				proyecto->Recibir_entrega(entrega);//segunda entrega
+				cJefes* aux = Fin_de_Proyecto(proyecto);
+				entrega->setAceptada(true);
+				cProyecto* auxp = lista_proyectos->Quitar(proyecto->getid());
+				proyecto->setEstadoEntrega(true);
+				return true;
+			}
+			else {
+				cout << "La entrega no fue aceptada" << endl;
+				return false;
+			}
 		}
-		else {
-			cout << "La entrega no fue aceptada" << endl;
-			return;
+		else
+		{
+			cout << "El proyecto ha sido entegado con existo" << endl;
+			return false;
 		}
-			
 	}
 }
+
 
 void cJefes::Imprimir()
 {
