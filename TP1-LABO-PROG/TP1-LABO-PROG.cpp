@@ -28,12 +28,13 @@ int main()
 	jefe1->Asignar_proyecto(proyecto1);
 	jefe1->Asignar_proyecto(proyecto2);
 	jefe1->Asignar_proyecto(proyecto3);
+	jefe1->Asignar_proyecto(proyecto4);
 
 
 	programador1->Recibir_Proyecto(proyecto1);
 	programador1->Recibir_Proyecto(proyecto2);
 	programador1->Recibir_Proyecto(proyecto3);
-	//programador1->Recibir_Proyecto(proyecto4);
+	programador1->Recibir_Proyecto(proyecto4);
 
 	cout << "Proyecto " << proyecto1->getnombre() << endl;
 	programador1->Entregar_Proyecto(entrega1_1, proyecto1, Estados::Finalizado, 20, 9, 2022);
@@ -52,7 +53,7 @@ int main()
 	cout << endl;
 
 	jefe1->Imprimir();
-	jefe1->Imprimir_por_Estado_y_Anio(2022, Estados::Finalizado);
+	jefe1->Imprimir_por_Estado_y_Anio(2022, Estados::Espera);
 
 	delete jefe1;
 	delete jefe2;
